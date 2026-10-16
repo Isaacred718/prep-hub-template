@@ -41,6 +41,19 @@ content** from `template/`: open it and every feature already works. Then make i
 `settings.js`, `app.js`, `forge.js`, `auth.js`, `sw.js`) plus `template/topic.js`
 and `template/data/` into a new folder, and edit `id` and `name` in `topic.js`.
 
+## Installable + offline (built in)
+
+Every generated app is an installable web app: `tools/make-icons.mjs`
+writes real `icon-192.png` / `icon-512.png` / `apple-touch-icon.png`
+files and a `manifest.json` (display: standalone), the engine links them,
+the service worker precaches them, and Settings → About has an
+**Install app** button (native prompt where the browser offers one,
+instructions elsewhere). After one online visit the whole app — content,
+guides and the document library — works offline on that device; the app
+also asks the browser for persistent storage so the offline copy is not
+evicted. Progress is per device unless `sync` is on, in which case
+offline progress syncs when a connection returns.
+
 ## 2. Configure `topic.js`
 
 | Field | Meaning |
