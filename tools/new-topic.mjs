@@ -19,6 +19,7 @@
    the astronomy sample content in data/ to replace with your own. See
    TEMPLATE.md for every field and content format. No dependencies. */
 import fs from 'node:fs';
+import { writeInstallAssets } from './make-icons.mjs';
 import path from 'node:path';
 import vm from 'node:vm';
 
@@ -103,6 +104,9 @@ if (opts.sync) {
     `$1sync: {\n$1  collection: ${q(id + '_users')}, // one Firestore doc per user: ${id}_users/{uid}\n$1  firebase: {\n${lines}\n$1  }\n$1}`, 'sync');
 }
 fs.writeFileSync(path.join(target, 'topic.js'), topic);
+writeInstallAssets(target, { name, shortName: name, text: icon, accent,
+  description: name + ' — offline-first study app: guides, flashcards, quizzes, practice tests, drills and an endless adaptive mode.' });
+copy(path.join(ROOT, 'tools/make-icons.mjs'), path.join(target, 'tools/make-icons.mjs'));
 
 const readme = fs.readFileSync(path.join(ROOT, 'template/README.md'), 'utf8')
   .replace(/\{\{NAME\}\}/g, name).replace(/\{\{ID\}\}/g, id).replace(/\{\{FOLDER\}\}/g, folder)

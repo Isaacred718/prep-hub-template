@@ -28,7 +28,11 @@ var ASSETS = [
   './data/cards.js',
   './data/guides.js',
   './data/drills.js',
-  './data/forge.js'
+  './data/forge.js',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png',
+  './apple-touch-icon.png'
 ];
   // Document library files from topic.js, cached so they open offline.
   try {

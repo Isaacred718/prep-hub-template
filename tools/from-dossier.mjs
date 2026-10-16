@@ -14,6 +14,7 @@
 
    No dependencies; Node 16+. */
 import fs from 'node:fs';
+import { writeInstallAssets } from './make-icons.mjs';
 import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
@@ -58,6 +59,7 @@ fs.mkdirSync(path.join(target, 'data', 'docs'), { recursive: true });
 for (const f of ENGINE) fs.copyFileSync(path.join(ROOT, f), path.join(target, f));
 fs.mkdirSync(path.join(target, 'tools'), { recursive: true });
 fs.copyFileSync(path.join(ROOT, 'tools', 'validate.mjs'), path.join(target, 'tools', 'validate.mjs'));
+fs.copyFileSync(path.join(ROOT, 'tools', 'make-icons.mjs'), path.join(target, 'tools', 'make-icons.mjs'));
 
 /* ---------- topic.js, generated from the dossier ---------- */
 const q = s => JSON.stringify(s);
@@ -196,6 +198,12 @@ sources are skipped — never pull them from unofficial mirrors.
 ${srcLines}
 `);
 
+writeInstallAssets(target, {
+  name: D.topic.name, shortName: D.topic.name,
+  text: D.topic.iconText || D.topic.name.replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase() || 'ST',
+  accent: D.topic.accent || 'sky',
+  description: (D.topic.blurb || (D.topic.name + ' — offline-first study app.'))
+});
 console.log('from-dossier: app scaffolded at ' + target);
 console.log('  topic.js: ' + D.tracks.length + ' track(s)' +
   (D.duties ? ', duties for ' + Object.keys(D.duties).join('/') : '') +

@@ -18,3 +18,10 @@ builds new topic apps:
 - `tools/from-dossier.mjs` — deterministic dossier → app scaffolding.
 - Root content is the astronomy sample (runs as-is); the CTS hub remains
   the reference implementation in its own repo.
+
+## 1.1 (2026-10-16)
+- Installable + offline on any device: tools/make-icons.mjs generates
+  real PNG icons (192/512/180) and manifest.json; new-topic.mjs and
+  from-dossier.mjs emit them automatically; index.html links them;
+  sw.js precaches them; Settings → About gains an Install app button;
+  the app requests persistent storage for its offline copy.

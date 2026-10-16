@@ -177,6 +177,24 @@ function makeIcon() {
 }
 makeIcon();
 
+/* ---------- installable app (manifest) + persistent storage ---------- */
+var deferredInstall = null;
+window.addEventListener('beforeinstallprompt', function (e) {
+  e.preventDefault();
+  deferredInstall = e;
+});
+if (navigator.storage && navigator.storage.persist) {
+  try { navigator.storage.persist().catch(function () {}); } catch (e) {}
+}
+function installApp() {
+  if (deferredInstall) {
+    deferredInstall.prompt();
+    deferredInstall.userChoice.then(function () { deferredInstall = null; });
+  } else {
+    toast('To install this app: open your browser menu and choose Install app or Add to Home Screen. It then opens full-screen and works fully offline.');
+  }
+}
+
 /* ---------- the Settings sheet ---------- */
 function $(id) { return document.getElementById(id); }
 function esc(s) {
@@ -326,7 +344,9 @@ function render() {
     '<section class="set-sec"><h3>About</h3>' +
     '<p class="small"><b>' + esc(T.name || 'Study app') + '</b> · v' + esc(T.version || '1.0') + '</p>' +
     '<p class="muted small">' + esc(parts.join(' · ')) + '. Works offline once loaded.</p>' +
-    '<div class="btnrow"><button class="btn sec" type="button" data-act="update">Check for updates</button>' +
+    '<div class="btnrow">' +
+    '<button class="btn sec" type="button" data-act="install">Install app</button>' +
+    '<button class="btn sec" type="button" data-act="update">Check for updates</button>' +
     '<button class="btn sec" type="button" data-act="repair">Repair offline copy</button></div>' +
     '</section>';
   body.innerHTML = html;
@@ -470,6 +490,7 @@ function runAction(act) {
     }
     return;
   }
+  if (act === 'install') return installApp();
   if (act === 'update') return checkForUpdates();
   if (act === 'repair') return repairOffline();
 }
