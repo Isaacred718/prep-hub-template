@@ -59,3 +59,26 @@ else types his password, ever). Check state with `notebooklm doctor`.
   the machine.
 - If the CLI breaks after a Google change, note it and fall back to the
   manual web UI (same flow, by hand) or skip the stage entirely.
+
+## Importing exports into an app (tool)
+
+`tools/notebooklm-import.mjs` converts notebooklm-py quiz and flashcard
+exports into app content:
+
+```
+node tools/notebooklm-import.mjs <export.json> --app <app-dir> --track <trackId> --domain "<domain name>"
+```
+
+- Quiz JSON (`questions: [{question, answerOptions: [{text, isCorrect}], hint}]`)
+  becomes questions: `correct` from `isCorrect`, `explanation` from the hint
+  or rationale; flashcards (`cards: [{f, b}]`) become `{domain, front, back}`.
+- `--dry-run` previews without writing. The tool reports the correct-answer
+  position distribution and warns if one position holds over 50%.
+- Imports are deduplicated: re-running the same export adds nothing
+  (questions match on text, cards on domain + front).
+- Imported items that lack a domain or explanation get explicit
+  `TODO:` markers; a human assigns domains before the content ships.
+- For duty-based topics (a dossier with `duties`), imported questions still
+  need `duty`/`task` tags added by hand — `tools/validate.mjs --strict`
+  flags any that are missing them.
+- Sample exports for testing live in `tools/fixtures/notebooklm/`.

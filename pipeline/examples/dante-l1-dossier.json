@@ -1,0 +1,292 @@
+{
+  "topic": {
+    "id": "dante-l1",
+    "name": "Dante L1 Prep",
+    "title": "Dante Certification Level 1 Prep",
+    "accent": "indigo",
+    "iconText": "DL1",
+    "trackLabel": "Level",
+    "advancedPrefix": "",
+    "blurb": "Unofficial study companion for Audinate's free Dante Certification Level 1 (3rd Edition): {questions} questions, {cards} flashcards, {guides} guides and {drills} drills covering digital audio and video basics, networking fundamentals, Dante products and Dante Controller."
+  },
+  "tracks": [
+    {
+      "id": "L1",
+      "label": "Dante Certification Level 1 (3rd Edition)",
+      "prerequisite": null,
+      "summary": "Free, self-paced online course plus final certification test (exam length not public); entry level for AV pros, integrators and IT staff working with single-switch Dante networks."
+    }
+  ],
+  "domains": [
+    {
+      "name": "Dante & Audinate Ecosystem",
+      "track": "L1",
+      "description": "Who Audinate is, what makes Dante a complete AV-over-IP platform (chipsets, software implementations, management tools). Official Chapter 2."
+    },
+    {
+      "name": "Digital Audio Fundamentals",
+      "track": "L1",
+      "description": "Sampling, sample rate, bit depth and encoding as they apply to Dante. Taught in the Level 1 'digital audio basics' chapter referenced by the Chapter 4 transcript; its chapter number is not published."
+    },
+    {
+      "name": "Dante Audio Products",
+      "track": "L1",
+      "description": "Dante audio chipsets and software implementations, Dante AVIO adapter families, Dante Virtual Soundcard (incl. DVS Pro) and Dante Via. Official Chapter 4."
+    },
+    {
+      "name": "Digital Video Fundamentals",
+      "track": "L1",
+      "description": "Resolution, frame rate, compression, EDID and HDCP basics. Taught in the Level 1 'video basics' chapter referenced by the Chapter 6 transcript; its chapter number is not published."
+    },
+    {
+      "name": "Dante AV",
+      "track": "L1",
+      "description": "Dante AV Ultra, Dante AV-A and Dante AV-H, Dante Studio (Video Tx/Rx/Viewer), latency, EDID, HDCP and bandwidth settings. Official Chapter 6."
+    },
+    {
+      "name": "Dante Functional Categories & First Network",
+      "track": "L1",
+      "description": "The four functional categories (discovery, clocking, subscriptions, latency), building a single-switch Dante network, audio breakaway. Official Chapter 7."
+    },
+    {
+      "name": "Networking Fundamentals",
+      "track": "L1",
+      "description": "MAC and IP addressing and network topologies (daisy chain, single switch) as named in the official Level 1 course descriptions; chapter number not published."
+    },
+    {
+      "name": "Latency",
+      "track": "L1",
+      "description": "What Dante latency is and how it is set and monitored. Taught in the Level 1 'introduction to latency' chapter referenced by the Chapter 10 transcript; chapter number not published."
+    },
+    {
+      "name": "Dante Controller",
+      "track": "L1",
+      "description": "Network interface selection, naming conventions, Network/Device views, routing matrix subscriptions, status icons and tabs (Device Info, Clock Status, Network Status, Events). Official Chapter 10."
+    }
+  ],
+  "exam": {
+    "passMark": 70,
+    "lengths": [
+      {
+        "n": 10,
+        "label": "Quick 10"
+      },
+      {
+        "n": 25,
+        "label": "25 questions",
+        "default": true
+      },
+      {
+        "n": 50,
+        "label": "Mock 50"
+      }
+    ],
+    "simQuestions": 50,
+    "simMinutes": 60,
+    "disclaimer": "Audinate does not publish the Level 1 test's question count, time limit or pass mark, so scores here are a study signal only, not a prediction of your certification result.",
+    "fees": {
+      "L1": {
+        "course": 0,
+        "exam": 0,
+        "currency": null,
+        "asPublished": "Free of charge (getdante.com program page 'Enroll Free Today'; Audinate press release 8 Oct 2025: 'Courses are offered free of charge for all three levels')",
+        "requires": "Free GetDante account"
+      }
+    }
+  },
+  "sources": [
+    {
+      "title": "Dante Certification Program (official program page)",
+      "kind": "other",
+      "track": "L1",
+      "url": "https://www.getdante.com/resources/training/dante-certification-program/",
+      "gated": false,
+      "localFile": null,
+      "description": "Audinate, getdante.com. Page dateModified 2026-08-03 (first published 2024-01-04); checked 2026-10-13. Lists Level 1 (3rd Edition), Level 2, Level 3 and Dante Domain Manager Administrator certifications; Level 1 = 5.5 AVIXA RUs (CTS, CTS-D, CTS-I, ANP) and 3.25 CEDIA CEUs; one-paragraph scope (digital audio, video, networking fundamentals; Dante Controller demos; single-switch networks).",
+      "notes": "Primary source for track identity, edition and RU value. Enrollment links go to the TalentLMS portal."
+    },
+    {
+      "title": "Dante Certification Program 3rd Edition (launch page)",
+      "kind": "other",
+      "track": null,
+      "url": "https://www.getdante.com/resources/training/dante-certification-3rd-edition/",
+      "gated": false,
+      "localFile": null,
+      "description": "Audinate, getdante.com. dateModified 2025-10-07 (published 2025-08-26); checked 2026-10-13. States the 3rd Edition is a complete rewrite of Levels 1-3, free, with 3-year certifications and AVIXA RUs.",
+      "notes": "Contains an expired LinkedIn promotion (deadline 1 December, year implied 2025); ignore."
+    },
+    {
+      "title": "Audinate press release: Audinate Launches Completely Revamped Dante Training Program",
+      "kind": "other",
+      "track": null,
+      "url": "https://www.audinate.com/press/audinate-launches-completely-revamped-dante-training-program/",
+      "gated": false,
+      "localFile": null,
+      "description": "Audinate, dated 8 October 2025 (posted 9 October 2025); checked 2026-10-13. Announces the 3rd Edition of Levels 1-3; RUs Level 1 5.5 / Level 2 8 / Level 3 6.25; free for all three levels; certifications valid three years; launches Certified Training Partner program."
+    },
+    {
+      "title": "Dante Certification training portal (TalentLMS course catalog, course modules, quizzes and final test)",
+      "kind": "handbook",
+      "track": "L1",
+      "url": "https://www.getdante.com/certify",
+      "gated": true,
+      "localFile": null,
+      "description": "getdante.com/certify redirects to audinate.talentlms.com; catalog at https://audinate.talentlms.com/plus/catalog requires sign-in with a (free) GetDante account. Checked 2026-10-13: login wall, contents not reviewed.",
+      "notes": "Holds the authoritative full chapter list, chapter quizzes and the final certification test rules. Gated: nothing from it is transcribed here."
+    },
+    {
+      "title": "Dante Certification Level 1 - Chapter 2: Who is Audinate & What is Dante (video, objectives, transcript)",
+      "kind": "textbook",
+      "track": "L1",
+      "url": "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-2-who-is-audinate-what-is-dante/",
+      "gated": false,
+      "localFile": null,
+      "description": "Official 3rd Edition chapter video with learning objectives and full transcript. Published 2025-10-03, modified 2026-05-27; checked 2026-10-13."
+    },
+    {
+      "title": "Dante Certification Level 1 - Chapter 4: Introduction to Dante Audio (video, objectives, transcript)",
+      "kind": "textbook",
+      "track": "L1",
+      "url": "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-4-introduction-to-dante-audio/",
+      "gated": false,
+      "localFile": null,
+      "description": "Official 3rd Edition chapter. Published 2025-10-03, modified 2026-05-27; checked 2026-10-13. Covers chipsets/software implementations, AVIO adapters, DVS/DVS Pro, Dante Via."
+    },
+    {
+      "title": "Dante Certification Level 1 - Chapter 6: Introduction to Dante AV (video, objectives, transcript)",
+      "kind": "textbook",
+      "track": "L1",
+      "url": "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-6-introduction-to-dante-av/",
+      "gated": false,
+      "localFile": null,
+      "description": "Official 3rd Edition chapter. Published 2025-10-03, modified 2026-05-27; checked 2026-10-13. Covers Dante AV Ultra/AV-A/AV-H, Dante Studio, EDID, HDCP, bandwidth."
+    },
+    {
+      "title": "Dante Certification Level 1 - Chapter 7: A Simple Demonstration (video, objectives, transcript)",
+      "kind": "textbook",
+      "track": "L1",
+      "url": "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-7-a-simple-demonstration/",
+      "gated": false,
+      "localFile": null,
+      "description": "Official 3rd Edition chapter. Published 2025-10-03, modified 2026-05-27; checked 2026-10-13. Four functional categories; first single-switch network; audio breakaway."
+    },
+    {
+      "title": "Dante Certification Level 1 - Chapter 10: Introduction to Dante Controller (video, objectives, transcript)",
+      "kind": "textbook",
+      "track": "L1",
+      "url": "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-10-introduction-to-dante-controller/",
+      "gated": false,
+      "localFile": null,
+      "description": "Official 3rd Edition chapter. Published 2025-10-03, modified 2026-05-27; checked 2026-10-13. NIC selection, naming, routing matrix, status icons, Device View tabs."
+    },
+    {
+      "title": "Dante Support FAQ: How do I Enroll in the Dante Certification courses?",
+      "kind": "handbook",
+      "track": null,
+      "url": "https://support.getdante.com/hc/en-gb/articles/5670063067423-How-do-I-Enroll-in-the-Dante-Certification-courses",
+      "gated": false,
+      "localFile": null,
+      "description": "Audinate support article, last updated 2026-04-23; checked 2026-10-13. Enrollment steps via GetDante account; Level 1 labelled Beginner; self-paced lessons, videos and quizzes, then a final certification test; certificate downloadable after passing.",
+      "notes": "support.getdante.com sits behind a bot challenge; read via a real browser render."
+    },
+    {
+      "title": "Dante Support FAQ: How long does my Dante Certification last before it expires?",
+      "kind": "handbook",
+      "track": null,
+      "url": "https://support.getdante.com/hc/en-gb/articles/5646704524575-How-long-does-my-Dante-Certification-last-before-it-expires",
+      "gated": false,
+      "localFile": null,
+      "description": "Audinate support article, last updated 2026-04-29; checked 2026-10-13. Certificates valid three years from award; 1st Edition retired; 2nd Edition still online for non-English versions; 3rd Edition launched September 2025."
+    },
+    {
+      "title": "Dante Support FAQ: Do Dante Certification courses qualify for AVIXA CTS Renewal Units?",
+      "kind": "handbook",
+      "track": null,
+      "url": "https://support.getdante.com/hc/en-gb/articles/5670153318431-Do-Dante-Certification-courses-qualify-for-AVIXA-CTS-Renewal-Units",
+      "gated": false,
+      "localFile": null,
+      "description": "Audinate support article, last updated 2026-05-11; checked 2026-10-13. Says completed courses can be submitted to AVIXA for RUs and gives 'typical' values that conflict with the program page (see researchNotes)."
+    },
+    {
+      "title": "Dante Support FAQ: Where can I get my certificates?",
+      "kind": "handbook",
+      "track": null,
+      "url": "https://support.getdante.com/hc/en-gb/articles/5452585438879-Where-can-I-get-my-certificates",
+      "gated": false,
+      "localFile": null,
+      "description": "Audinate support article, last updated 2026-04-23; checked 2026-10-13. Certificates download from My Progress > Certificates on getdante.com/certify; a new course edition can mark older certificates inactive or expired."
+    }
+  ],
+  "roadmap": {
+    "title": "Your path to Dante Level 1",
+    "intro": "Level 1 is free and self-paced. Work through the official course on the Dante training portal, use this app to drill each domain, then sit the final certification test on the portal.",
+    "footer": "Enrollment is free with a GetDante account: <a href=\"https://www.getdante.com/certify\" target=\"_blank\" rel=\"noopener\">getdante.com/certify</a>. Program details: <a href=\"https://www.getdante.com/resources/training/dante-certification-program/\" target=\"_blank\" rel=\"noopener\">Dante Certification Program</a>.",
+    "tracks": [
+      {
+        "id": "L1",
+        "status": null,
+        "note": "3rd Edition (launched autumn 2025). Certificate valid three years.",
+        "items": [
+          "Create a free GetDante account",
+          "Enroll in Dante Certification Level 1 (3rd Edition) from the portal catalog",
+          "Install Dante Controller (free, Windows and macOS) to follow along",
+          "Work through every course chapter and its quizzes",
+          "Reach your readiness target in each domain in this app",
+          "Pass the final certification test on the portal",
+          "Download your certificate from My Progress > Certificates",
+          "If you hold CTS, CTS-D, CTS-I or ANP, submit the course to AVIXA for renewal units"
+        ]
+      }
+    ]
+  },
+  "notebooklm": {
+    "notebookTitle": "Dante Certification Level 1 — Prep Hub sources",
+    "sourceUrls": [
+      "https://www.getdante.com/resources/training/dante-certification-program/",
+      "https://www.getdante.com/resources/training/dante-certification-3rd-edition/",
+      "https://www.audinate.com/press/audinate-launches-completely-revamped-dante-training-program/",
+      "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-2-who-is-audinate-what-is-dante/",
+      "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-4-introduction-to-dante-audio/",
+      "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-6-introduction-to-dante-av/",
+      "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-7-a-simple-demonstration/",
+      "https://www.getdante.com/resources/catalog/video-tutorials/dante-certification-level-1-chapter-10-introduction-to-dante-controller/",
+      "https://www.getdante.com/products/software-essentials/dante-controller/",
+      "https://www.getdante.com/products/software-essentials/dante-virtual-soundcard/",
+      "https://www.getdante.com/products/software-essentials/dante-via/",
+      "https://www.getdante.com/products/software-essentials/dante-studio/",
+      "https://www.getdante.com/products/adapters/dante-avio-adapters/"
+    ],
+    "artifacts": [
+      "quiz",
+      "flashcards",
+      "report"
+    ],
+    "prompts": [
+      "Write a one-page guide to Dante Controller for a first-time Level 1 candidate: choosing the network interface, naming devices and channels before subscribing, making and breaking subscriptions, and reading the common status icons. Use only the sources.",
+      "Explain Dante's four functional categories (discovery, clocking, subscriptions, latency) with a worked example of building a single-switch network, as covered in Level 1 Chapter 7.",
+      "Compare Dante AV Ultra, Dante AV-A and Dante AV-H in a table (use case, video handling, typical venue), then explain how Dante Studio's Video Tx, Video Rx and Video Viewer fit in.",
+      "Write a guide to the Dante audio product family for a beginner: AVIO adapter categories with one use case each, and when to choose Dante Virtual Soundcard versus Dante Via.",
+      "List every fact in the sources about sample rate, latency and channel counts (e.g. DVS channel limits at 48 kHz vs 96 kHz) as flashcard-ready question/answer pairs, citing the chapter each came from.",
+      "Describe three Level 1 troubleshooting scenarios from the sources (renamed device breaking a subscription, sample rate mismatch, wrong network interface) with symptoms in Dante Controller and the fix."
+    ]
+  },
+  "contentTargets": {
+    "questionsPerTrack": {
+      "L1": 265
+    },
+    "cardsPerDomain": 20,
+    "drills": 10,
+    "guides": [
+      "Dante & Audinate Ecosystem",
+      "Digital Audio Fundamentals",
+      "Dante Audio Products",
+      "Digital Video Fundamentals",
+      "Dante AV",
+      "Dante Functional Categories & First Network",
+      "Networking Fundamentals",
+      "Latency",
+      "Dante Controller"
+    ]
+  },
+  "researchNotes": "VERIFIED (live web, 2026-10-13): Dante Certification Level 1 exists as named; the current version is the 3rd Edition, a full rewrite of Levels 1-3 (getdante.com program page, modified 2026-08-03; Audinate press release dated 8 Oct 2025). Programme ladder on the official page: Level 1, Level 2, Level 3, plus Dante Domain Manager Administrator; the support FAQ also describes Dante Mastery, a 4-day in-person class. Only Level 1 is in scope, so the dossier has a single track (L1, prerequisite none; no prerequisite is stated for Level 1 anywhere).\n\nNO OFFICIAL BLUEPRINT: Audinate publishes no exam content outline, no domain weights and no task list for Level 1. `duties` is therefore absent and readiness falls back to per-domain scoring. Domains are taken from the official course structure: the five chapters Audinate publishes publicly (Ch2 Who is Audinate & What is Dante, Ch4 Introduction to Dante Audio, Ch6 Introduction to Dante AV, Ch7 A Simple Demonstration, Ch10 Introduction to Dante Controller), plus four topics the official course material itself names as Level 1 chapters or topics but whose chapter numbers and exact titles are not public: digital audio basics (referenced in the Ch4 transcript), video basics (Ch6 transcript), introduction to latency (Ch10 transcript), and networking fundamentals incl. MAC/IP addressing and topologies (program page; AVIXA's listing of the course). Inferred, NOT verified: Ch1 is a programme introduction (Ch2 opens 'now that you know about the Dante certification program'), Ch3 is probably digital audio basics, Ch5 probably video basics, Ch8-9 probably networking and latency. The total number of Level 1 chapters is unknown (at least 10).\n\nGATED: The full course, chapter quizzes and the final certification test live on the TalentLMS portal (getdante.com/certify -> audinate.talentlms.com), which needs a free GetDante account sign-in. Nothing behind the login was viewed. Not published publicly and therefore NOT recorded: test question count, time limit, pass mark, attempt limits/retake policy, ID or proctoring rules. exam.passMark 70, simQuestions 50 and simMinutes 60 are app practice defaults chosen by the research stage, not Audinate figures; the disclaimer says so. Isaac (or anyone with a GetDante account) can fill these in by enrolling and reading the test instructions.\n\nFEES: Free. Program page says 'Enroll Free Today'; press release says courses are free for all three levels. No currency applies; no price was estimated.\n\nVALIDITY: Three years from award (program 3rd Edition page, press release, support FAQ). The 'Where can I get my certificates?' FAQ adds that some certificates are valid 3-5 years and that a new course edition can mark older certificates inactive/expired.\n\nCONFLICTS (recorded, not resolved):\n1. AVIXA RUs for Level 1: program page and press release say 5.5 RUs (CTS, CTS-D, CTS-I, ANP); AVIXA's own course listing also shows 5.5. The support FAQ 'Do Dante Certification courses qualify for AVIXA CTS Renewal Units?' (updated 2026-05-11) gives 'typical' values of ~2 / ~4 / ~6 RUs for Levels 1/2/3 and tells readers to check with AVIXA. The FAQ values look like legacy figures; the app should state 5.5 and cite the program page.\n2. 3rd Edition launch date: support FAQ says September 2025; press release is dated 8 October 2025; the 3rd Edition web page was first published 26 Aug 2025 and the public chapter videos 3 Oct 2025.\n3. CEUs: program page lists 3.25 CEDIA CEUs for Level 1; no other source mentions it.\n\nEDITION RISK: The 2nd Edition remains available online in non-English languages, and many third-party study notes describe the 1st/2nd Edition. Build content only from 3rd Edition sources. A 2019 Level 1 introduction PDF found via search is 1st/2nd Edition material and was deliberately not used.\n\nUNREACHABLE: audinate.com/learning/... pages returned HTTP 403; support.getdante.com blocks plain HTTP clients and was read through a headless browser render.\n\nCONTENT SPLIT (265 questions, no official weights, so weighted by apparent course emphasis and testability): Dante Controller 45; Networking Fundamentals 35; Digital Audio Fundamentals 35; Dante Functional Categories & First Network 30; Dante AV 30; Latency 25; Dante Audio Products 25; Digital Video Fundamentals 25; Dante & Audinate Ecosystem 15. Domains whose chapters are not public (digital audio, video, networking, latency) must be written from standard concepts that the public chapters reference, and checked against the gated course by someone enrolled before shipping. Drills: 10 Dante Controller troubleshooting scenarios (unresolved subscription after rename, sample rate mismatch, wrong NIC, video resolution/frame-rate switching delays, etc.). No library: Audinate publishes no public 3rd Edition PDFs for Level 1."
+}

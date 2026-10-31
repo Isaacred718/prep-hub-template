@@ -1,0 +1,70 @@
+{
+  "title": "Sample Astronomy Quiz",
+  "questions": [
+    {
+      "question": "Which planet is closest to the Sun?",
+      "answerOptions": [
+        {
+          "text": "Mercury",
+          "isCorrect": true
+        },
+        {
+          "text": "Venus",
+          "isCorrect": false
+        },
+        {
+          "text": "Earth",
+          "isCorrect": false
+        },
+        {
+          "text": "Mars",
+          "isCorrect": false
+        }
+      ],
+      "hint": "It has no atmosphere."
+    },
+    {
+      "question": "What causes the seasons on Earth?",
+      "answerOptions": [
+        {
+          "text": "Distance from the Sun",
+          "isCorrect": false
+        },
+        {
+          "text": "Axial tilt of 23.5 degrees",
+          "isCorrect": true
+        },
+        {
+          "text": "Earth's rotation speed",
+          "isCorrect": false
+        },
+        {
+          "text": "Solar flares",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Not distance, but angle."
+    },
+    {
+      "question": "Which planet is the largest in the solar system?",
+      "answerOptions": [
+        {
+          "text": "Saturn",
+          "isCorrect": false
+        },
+        {
+          "text": "Uranus",
+          "isCorrect": false
+        },
+        {
+          "text": "Jupiter",
+          "isCorrect": true
+        },
+        {
+          "text": "Neptune",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

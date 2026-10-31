@@ -60,6 +60,10 @@ for (const f of ENGINE) fs.copyFileSync(path.join(ROOT, f), path.join(target, f)
 fs.mkdirSync(path.join(target, 'tools'), { recursive: true });
 fs.copyFileSync(path.join(ROOT, 'tools', 'validate.mjs'), path.join(target, 'tools', 'validate.mjs'));
 fs.copyFileSync(path.join(ROOT, 'tools', 'make-icons.mjs'), path.join(target, 'tools', 'make-icons.mjs'));
+{ // stamp the static <title> so tabs and no-JS renders carry the app name
+  const ih = path.join(target, 'index.html');
+  fs.writeFileSync(ih, fs.readFileSync(ih, 'utf8').replace('<title>Study</title>', '<title>' + D.topic.title + '</title>'));
+}
 
 /* ---------- topic.js, generated from the dossier ---------- */
 const q = s => JSON.stringify(s);

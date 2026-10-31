@@ -104,6 +104,10 @@ if (opts.sync) {
     `$1sync: {\n$1  collection: ${q(id + '_users')}, // one Firestore doc per user: ${id}_users/{uid}\n$1  firebase: {\n${lines}\n$1  }\n$1}`, 'sync');
 }
 fs.writeFileSync(path.join(target, 'topic.js'), topic);
+{ // stamp the static <title> so tabs and no-JS renders carry the app name
+  const ih = path.join(target, 'index.html');
+  fs.writeFileSync(ih, fs.readFileSync(ih, 'utf8').replace('<title>Study</title>', '<title>' + name + ' — study app</title>'));
+}
 writeInstallAssets(target, { name, shortName: name, text: icon, accent,
   description: name + ' — offline-first study app: guides, flashcards, quizzes, practice tests, drills and an endless adaptive mode.' });
 copy(path.join(ROOT, 'tools/make-icons.mjs'), path.join(target, 'tools/make-icons.mjs'));

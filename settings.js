@@ -176,6 +176,7 @@ function makeIcon() {
   } catch (e) {}
 }
 makeIcon();
+if (T.title) document.title = T.title;
 
 /* ---------- installable app (manifest) + persistent storage ---------- */
 var deferredInstall = null;

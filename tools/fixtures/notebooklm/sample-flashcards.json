@@ -1,0 +1,21 @@
+{
+  "title": "Sample Astronomy Flashcards",
+  "cards": [
+    {
+      "f": "Astronomical unit (AU)",
+      "b": "The average Earth–Sun distance: about 150 million km."
+    },
+    {
+      "f": "Terrestrial planets",
+      "b": "Mercury, Venus, Earth and Mars — small, dense, rocky worlds."
+    },
+    {
+      "f": "Gas giants",
+      "b": "Jupiter and Saturn — huge planets made mostly of hydrogen and helium."
+    },
+    {
+      "f": "Ice giants",
+      "b": "Uranus and Neptune — rich in water, ammonia and methane ices."
+    }
+  ]
+}

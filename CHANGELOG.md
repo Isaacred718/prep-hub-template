@@ -25,3 +25,17 @@ builds new topic apps:
   from-dossier.mjs emit them automatically; index.html links them;
   sw.js precaches them; Settings → About gains an Install app button;
   the app requests persistent storage for its offline copy.
+
+## 1.2 (2026-10-31)
+- Integrated the two cluster pilots. tools/notebooklm-import.mjs
+  (OpenCode, branch tools/notebooklm-import) converts notebooklm-py quiz
+  and flashcard exports into app content; hardened in review with a
+  pre-flight target check (no half-written imports) and deduplication,
+  with sample exports in tools/fixtures/notebooklm/.
+- pipeline/examples/dante-l1-dossier.json (+ summary): the Dante
+  Certification Level 1 research dossier (Claude, branch
+  pilot/dante-l1-dossier), validated against schemas/dossier.schema.json;
+  scaffolds cleanly with from-dossier.mjs.
+- Fixes found during integration: the app now sets document.title from
+  the topic config, and new-topic/from-dossier stamp the static <title>
+  in index.html (generated apps no longer show a generic "Study" tab).

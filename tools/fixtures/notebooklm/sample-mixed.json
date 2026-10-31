@@ -1,0 +1,33 @@
+{
+  "title": "Mixed Export",
+  "questions": [
+    {
+      "question": "Which moon causes tides on Earth?",
+      "answerOptions": [
+        {
+          "text": "Mars moon Phobos",
+          "isCorrect": false
+        },
+        {
+          "text": "Earth's Moon",
+          "isCorrect": true
+        },
+        {
+          "text": "Jupiter's Io",
+          "isCorrect": false
+        },
+        {
+          "text": "Saturn's Titan",
+          "isCorrect": false
+        }
+      ],
+      "hint": "Our nearest neighbor."
+    }
+  ],
+  "cards": [
+    {
+      "f": "Tidal locking",
+      "b": "A moon spins once per orbit, so the same face always points at its planet."
+    }
+  ]
+}
