@@ -400,3 +400,142 @@ kbd{
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+
+/* =====================================================================
+   v7 skin — friendly, chunky, thumb-first.
+   Rounded type, solid cards, big pressable buttons with a bottom "lip",
+   a five-slot tab bar with a More sheet, and bottom sheets you can drag
+   down to dismiss. Everything still keys off the theme/accent tokens.
+   ===================================================================== */
+@font-face{
+  font-family:"Nunito";src:url("fonts/nunito.woff2") format("woff2");
+  font-weight:200 1000;font-style:normal;font-display:swap;
+}
+:root{
+  --bg:#101827; --card:#18233a; --card-strong:#141d31; --panel:#18233a; --sunk:#0f1829;
+  --line:#2c3a55; --border-soft:#2c3a55; --nav:#141d31; --shadow:none;
+  --btn-sec:#24324d; --lip:rgba(0,0,0,.38); --radius:18px;
+  --font:"Nunito",ui-rounded,"SF Pro Rounded","Segoe UI",Roboto,system-ui,sans-serif;
+}
+[data-theme="light"]{
+  --bg:#f4f7fb; --card:#ffffff; --card-strong:#ffffff; --panel:#ffffff; --sunk:#f1f5fa;
+  --line:#dde4ee; --border-soft:#dde4ee; --nav:#ffffff; --shadow:none;
+  --btn-sec:#e8eef6; --lip:rgba(15,23,42,.16);
+}
+body{font-family:var(--font);background:var(--bg);font-weight:500;padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+header{backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:2px solid var(--line);background:var(--card-strong)}
+header h1{font-size:19px;font-weight:900;letter-spacing:0}
+h2{font-size:1.2rem;font-weight:800}
+h3{font-weight:800}
+.card{backdrop-filter:none;-webkit-backdrop-filter:none;border:2px solid var(--line);border-radius:var(--radius);box-shadow:none}
+
+/* buttons: solid colour + darker lip; press pushes the button down */
+.btn{
+  border-radius:16px;background:var(--accent-1);font-weight:800;letter-spacing:.02em;
+  box-shadow:0 4px 0 var(--accent-2),0 4px 0 1px var(--lip);min-height:52px;
+  transition:transform .06s ease,box-shadow .06s ease,filter .15s;
+}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{opacity:1;transform:translateY(4px);box-shadow:0 0 0 var(--accent-2)}
+.btn.sec{background:var(--btn-sec);box-shadow:0 4px 0 var(--lip)}
+.btn.ok{background:#16a34a;box-shadow:0 4px 0 #0f7a36}
+.btn.warnb{background:#ea7a0c;box-shadow:0 4px 0 #b85c06}
+.btn.ghost{border:2px solid var(--line);box-shadow:0 3px 0 var(--line);color:var(--text);font-weight:700;min-height:44px}
+.btn.ghost:active{transform:translateY(3px);box-shadow:none}
+.btn.sm,.btn.small{min-height:40px;border-radius:12px;box-shadow:0 3px 0 var(--lip)}
+.btn.sm:active,.btn.small:active{transform:translateY(3px);box-shadow:none}
+.btn[disabled]{box-shadow:none;transform:none;filter:grayscale(.4)}
+.google-btn{box-shadow:0 3px 0 #cbd5e1;border:2px solid #e2e8f0;font-weight:800}
+.icon-btn{border-radius:14px;border:2px solid var(--line);box-shadow:0 3px 0 var(--line);min-width:44px;min-height:44px}
+.icon-btn:active{transform:translateY(3px);box-shadow:none}
+
+/* answer options: big, lettered, obviously tappable */
+.option{border:2px solid var(--line);border-radius:16px;box-shadow:0 3px 0 var(--line);font-weight:600;min-height:56px;transition:transform .06s ease,box-shadow .06s ease}
+.option:active{transform:translateY(3px);box-shadow:none}
+.option:hover:not([disabled]){border-color:var(--accent)}
+.option.selected{box-shadow:0 3px 0 var(--accent)}
+.option.correct{box-shadow:0 3px 0 var(--green)}
+.option.wrong{box-shadow:0 3px 0 var(--red)}
+.q-text{font-size:1.2rem;font-weight:800;line-height:1.4}
+.explain{border-radius:14px}
+.progressbar{height:14px;border-radius:99px;background:var(--btn-sec)}
+.progressbar>div{border-radius:99px;background:var(--accent);box-shadow:inset 0 -4px 0 rgba(0,0,0,.12);transition:width .35s cubic-bezier(.2,.8,.3,1)}
+.stat-box{border:2px solid var(--line);border-radius:16px}
+.stat-val{font-size:1.5rem;font-weight:900}
+.stat-lbl{font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+select,input[type=number],input[type=text]{border-width:2px;border-radius:14px;min-height:50px;font-family:var(--font);font-weight:700}
+.seg button{border-width:2px;border-radius:14px;font-weight:800;min-height:44px;box-shadow:0 3px 0 var(--line)}
+.seg button.on{box-shadow:0 3px 0 var(--accent)}
+.checkgrid label{border-width:2px;border-radius:14px;min-height:44px}
+.dgroup a,.career{border-width:2px;border-radius:16px}
+.dgroup a{box-shadow:0 3px 0 var(--line);transition:transform .06s ease,box-shadow .06s ease}
+.dgroup a:active{transform:translateY(3px);box-shadow:none}
+.fface{border-width:2px;border-radius:22px}
+.tag{font-weight:800}
+
+/* tab bar: five big slots */
+nav.tabs{backdrop-filter:none;-webkit-backdrop-filter:none;border-top:2px solid var(--line);padding:8px 8px calc(10px + env(safe-area-inset-bottom));gap:6px;justify-content:center}
+nav.tabs button{font-size:11.5px;font-weight:800;border:2px solid transparent;border-radius:14px;padding:7px 2px;min-height:56px;max-width:120px;text-transform:uppercase;letter-spacing:.03em}
+nav.tabs button .ico{font-size:24px}
+nav.tabs button.active{border-color:rgba(var(--accent-rgb),.55);background:rgba(var(--accent-rgb),.14)}
+nav.tabs button:hover{background:rgba(var(--accent-rgb),.08)}
+
+/* home hero: streak + one-tap starts */
+.hero{border-color:rgba(var(--accent-rgb),.5);background:linear-gradient(160deg,rgba(var(--accent-rgb),.16),transparent 70%),var(--card)}
+.hero-top{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.hero-flame{font-size:2.6rem;line-height:1;filter:saturate(1.1)}
+.hero-flame.cold{filter:grayscale(1);opacity:.55}
+.hero-count{font-size:1.6rem;font-weight:900;line-height:1.1}
+.hero-sub{color:var(--muted);font-size:.9rem;font-weight:700}
+.hero-week{display:flex;gap:6px;margin:12px 0 4px}
+.hero-week span{flex:1;text-align:center;font-size:.7rem;font-weight:800;color:var(--muted)}
+.hero-week i{display:block;height:10px;border-radius:99px;background:var(--btn-sec);margin-bottom:5px}
+.hero-week .done i{background:var(--amber)}
+.hero-week .now{color:var(--text)}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.quick .btn{margin:0;display:flex;align-items:center;justify-content:center;gap:8px}
+.quick .btn:first-child{grid-column:1/-1;font-size:1.1rem;min-height:58px}
+
+/* More sheet: grid of big tiles, drag handle on top */
+.sheet-panel{border-radius:24px 24px 0 0;border:2px solid var(--line);border-bottom:none;touch-action:pan-y}
+.sheet-grab{display:flex;justify-content:center;padding:10px 0 2px;cursor:grab;touch-action:none}
+.sheet-grab::before{content:"";width:44px;height:5px;border-radius:99px;background:var(--line)}
+.sheet-panel.dragging{transition:none!important;animation:none!important}
+.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0 6px}
+.more-grid button{
+  display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;font:inherit;color:var(--text);
+  background:var(--sunk);border:2px solid var(--line);border-radius:18px;padding:14px;min-height:96px;cursor:pointer;
+  box-shadow:0 4px 0 var(--line);transition:transform .06s ease,box-shadow .06s ease;
+}
+.more-grid button:active{transform:translateY(4px);box-shadow:none}
+.more-grid button:hover{border-color:var(--accent)}
+.more-grid button.active{border-color:var(--accent);box-shadow:0 4px 0 var(--accent)}
+.more-grid .ico{font-size:28px;line-height:1}
+.more-grid .lbl{font-weight:900;font-size:1rem}
+.more-grid .desc{font-size:.76rem;color:var(--muted);font-weight:600;line-height:1.3}
+.more-grid button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Android app: sign-in needs a browser, so the header shows a local-save chip instead */
+.native-chip{display:none;font-size:11px;font-weight:800;color:var(--muted);border:2px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap}
+html.native-app .native-chip{display:inline-block}
+html.native-app #auth-out,html.native-app #auth-in,html.native-app #sync-dot,html.native-app #sync-label{display:none!important}
+
+/* wide screens and the Quest panel: use the room */
+@media(min-width:900px){
+  .container{max-width:1040px}
+  #pane-overview.active{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:start}
+  #pane-overview .card{margin-bottom:0}
+  #pane-overview .hero{grid-column:1/-1}
+  nav.tabs button{flex-direction:row;justify-content:center;gap:8px;font-size:13px;max-width:180px}
+}
+/* Quest: controller rays are less precise than a thumb — larger targets, clear hover */
+html.quest{font-size:112.5%}
+html.quest .option,html.quest .btn{min-height:60px}
+html.quest .option:hover:not([disabled]),html.quest .btn:hover,html.quest .more-grid button:hover,html.quest nav.tabs button:hover{outline:3px solid var(--accent);outline-offset:2px}
+html.quest ::-webkit-scrollbar{width:14px}
+html.quest ::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+@media(prefers-reduced-motion:reduce){.btn,.option,.more-grid button{transition:none}}
+.google-btn,.google-btn:hover{background:#fff;color:#1f2937;min-height:40px}
+.stat-lbl{font-size:.62rem;letter-spacing:.02em}
+@media(max-width:480px){.stats-grid{grid-template-columns:1fr 1fr}.stat-lbl{font-size:.72rem}}
+html.native-app [data-act="install"]{display:none}

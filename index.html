@@ -62,6 +62,7 @@ try {
     <span class="sync-label" id="sync-label"></span>
     <span class="sync-label" id="app-ver" style="opacity:.45"></span>
     <span class="badge" id="offline-badge" style="display:none">Offline</span>
+    <span class="native-chip" title="Progress is saved on this device. Use Settings to back it up.">Saved on device</span>
     <div id="auth-out">
       <button class="btn sm google-btn" id="btn-signin">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.3H12v4.5h6.5c-.1 1.1-.8 2.7-2.4 3.8l-.1.1 3.5 2.7.2.1c2.2-2 3.8-5 3.8-8.9z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.8-2.9c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.8-5l-.1.1-3.7 2.9v.1C3.4 21.5 7.4 24 12 24z"/><path fill="#FBBC05" d="M5.2 14.4c-.2-.7-.4-1.5-.4-2.4s.1-1.7.4-2.4l-.1-.1-3.6-2.8-.1.1C.5 8.3 0 10.1 0 12s.5 3.7 1.4 5.2l3.8-2.8z"/><path fill="#EA4335" d="M12 4.7c1.8 0 3 .8 3.7 1.4l3.3-3.2C17.9 1.1 15.2 0 12 0 7.4 0 3.4 2.5 1.4 6.8l3.8 2.9c1-2.9 3.7-5 6.8-5z"/></svg>
@@ -89,6 +90,21 @@ try {
 <div class="container">
   <!-- OVERVIEW -->
   <section class="tabpane active" id="pane-overview">
+    <div class="card hero" id="hero">
+      <div class="hero-top">
+        <span class="hero-flame cold" id="hero-flame" aria-hidden="true">🔥</span>
+        <div>
+          <div class="hero-count" id="hero-count">Start your streak</div>
+          <div class="hero-sub" id="hero-sub">Answer one question today to light the flame.</div>
+        </div>
+      </div>
+      <div class="hero-week" id="hero-week" aria-hidden="true"></div>
+      <div class="quick">
+        <button class="btn" type="button" data-go="quiz" id="hero-go">▶ Start a quick quiz</button>
+        <button class="btn sec" type="button" data-go="cards">🃏 Flashcards</button>
+        <button class="btn sec" type="button" data-go="endless">♾️ Endless</button>
+      </div>
+    </div>
     <div class="card">
       <h2>Study Dashboard</h2>
       <div class="stats-grid" id="ov-stats"></div>
@@ -380,16 +396,33 @@ try {
 </div>
 
 <nav class="tabs" aria-label="Sections">
-  <button data-tab="overview" class="active" aria-current="page"><span class="ico" aria-hidden="true">🏠</span><span class="lbl">Overview</span></button>
+  <button data-tab="overview" class="active" aria-current="page"><span class="ico" aria-hidden="true">🏠</span><span class="lbl">Home</span></button>
   <button data-tab="guides"><span class="ico" aria-hidden="true">📖</span><span class="lbl">Guides</span></button>
   <button data-tab="cards"><span class="ico" aria-hidden="true">🃏</span><span class="lbl">Cards</span></button>
   <button data-tab="quiz"><span class="ico" aria-hidden="true">✏️</span><span class="lbl">Quiz</span></button>
-  <button data-tab="test"><span class="ico" aria-hidden="true">🎯</span><span class="lbl">Practice</span></button>
-  <button data-tab="drills"><span class="ico" aria-hidden="true">🎛️</span><span class="lbl">Drills</span></button>
-  <button data-tab="endless"><span class="ico" aria-hidden="true">♾️</span><span class="lbl">Endless</span></button>
-  <button data-tab="library"><span class="ico" aria-hidden="true">📚</span><span class="lbl">Library</span></button>
-  <button data-tab="roadmap"><span class="ico" aria-hidden="true">🗺️</span><span class="lbl">Roadmap</span></button>
+  <button id="btn-more" type="button" aria-haspopup="dialog" aria-controls="more-sheet"><span class="ico" aria-hidden="true">✨</span><span class="lbl">More</span></button>
 </nav>
+
+<!-- MORE: the rest of the sections, as a bottom sheet (drag down or tap outside to close) -->
+<div class="sheet" id="more-sheet" hidden role="dialog" aria-modal="true" aria-labelledby="more-title">
+  <div class="sheet-backdrop" data-close></div>
+  <div class="sheet-panel">
+    <div class="sheet-grab" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <h2 id="more-title">More ways to study</h2>
+      <button class="icon-btn sheet-close" type="button" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="sheet-body">
+      <div class="more-grid">
+        <button data-tab="test"><span class="ico" aria-hidden="true">🎯</span><span class="lbl">Practice</span><span class="desc">Build a full timed practice test</span></button>
+        <button data-tab="drills"><span class="ico" aria-hidden="true">🎛️</span><span class="lbl">Drills</span><span class="desc">Work through real-world scenarios</span></button>
+        <button data-tab="endless"><span class="ico" aria-hidden="true">♾️</span><span class="lbl">Endless</span><span class="desc">Adaptive questions that never run out</span></button>
+        <button data-tab="library"><span class="ico" aria-hidden="true">📚</span><span class="lbl">Library</span><span class="desc">Reference documents, saved offline</span></button>
+        <button data-tab="roadmap"><span class="ico" aria-hidden="true">🗺️</span><span class="lbl">Roadmap</span><span class="desc">Your path, step by step</span></button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- SETTINGS (rendered by settings.js) -->
 <div class="sheet" id="settings" hidden role="dialog" aria-modal="true" aria-labelledby="settings-title">
@@ -418,6 +451,7 @@ try {
 <script src="data/forge.js" defer></script>
 <script src="settings.js" defer></script>
 <script src="app.js" defer></script>
+<script src="ui.js" defer></script>
 <script>
 // Offline mode: cache the app shell so it loads with no internet.
 if ('serviceWorker' in navigator) {

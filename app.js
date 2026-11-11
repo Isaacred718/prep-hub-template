@@ -310,7 +310,7 @@ const HAS = {
 let currentTab = 'overview';
 function showTab(tab) {
   currentTab = tab;
-  document.querySelectorAll('nav.tabs button').forEach(x => {
+  document.querySelectorAll('nav.tabs button[data-tab], #more-sheet button[data-tab]').forEach(x => {
     const on = x.dataset.tab === tab;
     x.classList.toggle('active', on);
     if (on) x.setAttribute('aria-current', 'page'); else x.removeAttribute('aria-current');
@@ -318,9 +318,10 @@ function showTab(tab) {
   document.querySelectorAll('.tabpane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + tab));
   if (tab === 'overview') { try { renderReadiness(); } catch (e) {} }
   if (tab === 'roadmap') { try { renderRoadmap(); } catch (e) {} }
+  document.dispatchEvent(new CustomEvent('study:tab', { detail: { tab } }));
   window.scrollTo(0, 0);
 }
-document.querySelectorAll('nav.tabs button').forEach(b => {
+document.querySelectorAll('nav.tabs button[data-tab], #more-sheet button[data-tab]').forEach(b => {
   const tab = b.dataset.tab;
   if (HAS[tab] === false) b.hidden = true;
   const custom = T.labels && T.labels[tab];
@@ -1571,7 +1572,7 @@ document.addEventListener('keydown', e => {
   if (ctl && !shown(ctl) && (k === 'Enter' || k === ' ')) e.preventDefault();
   // Enter/Space on a visible control keeps its native meaning, except on the
   // tab you are already on (re-activating it would do nothing)
-  const passive = !ctl || !shown(ctl) || ctl.matches('nav.tabs button.active');
+  const passive = !ctl || !shown(ctl) || ctl.matches('nav.tabs button.active, #more-sheet button.active');
   const opt = /^[1-6]$/.test(k) ? +k - 1 : /^[a-f]$/i.test(k) ? k.toLowerCase().charCodeAt(0) - 97 : -1;
   const next = k === 'ArrowRight' || (k === 'Enter' && passive);
   const press = id => { const b = $(id); if (shown(b) && !b.disabled) { b.click(); return true; } return false; };

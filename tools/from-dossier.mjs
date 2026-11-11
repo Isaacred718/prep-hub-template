@@ -18,7 +18,7 @@ import { writeInstallAssets } from './make-icons.mjs';
 import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const ENGINE = ['index.html', 'styles.css', 'settings.js', 'app.js', 'forge.js', 'auth.js', 'sw.js'];
+const ENGINE = ['index.html', 'styles.css', 'settings.js', 'app.js', 'ui.js', 'forge.js', 'auth.js', 'sw.js', 'fonts/nunito.woff2', 'fonts/OFL.txt'];
 const FORCE = process.argv.includes('--force');
 const args = process.argv.slice(2).filter(a => a !== '--force');
 const [dossierPath, targetArg] = args;
@@ -56,7 +56,10 @@ if (fs.existsSync(target) && fs.readdirSync(target).length && !FORCE)
 fs.mkdirSync(path.join(target, 'data', 'docs'), { recursive: true });
 
 /* ---------- engine, unchanged ---------- */
-for (const f of ENGINE) fs.copyFileSync(path.join(ROOT, f), path.join(target, f));
+for (const f of ENGINE) {
+  fs.mkdirSync(path.dirname(path.join(target, f)), { recursive: true });
+  fs.copyFileSync(path.join(ROOT, f), path.join(target, f));
+}
 fs.mkdirSync(path.join(target, 'tools'), { recursive: true });
 fs.copyFileSync(path.join(ROOT, 'tools', 'validate.mjs'), path.join(target, 'tools', 'validate.mjs'));
 fs.copyFileSync(path.join(ROOT, 'tools', 'make-icons.mjs'), path.join(target, 'tools', 'make-icons.mjs'));

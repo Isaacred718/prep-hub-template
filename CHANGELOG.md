@@ -39,3 +39,16 @@ builds new topic apps:
 - Fixes found during integration: the app now sets document.title from
   the topic config, and new-topic/from-dossier stamp the static <title>
   in index.html (generated apps no longer show a generic "Study" tab).
+
+## 2.0 (2026-11-11)
+
+- New look and navigation for every topic app: bundled rounded type, solid
+  cards, big pressable buttons, a five-slot tab bar (Home, Guides, Cards,
+  Quiz, More) with the other sections in a drag-to-close More sheet, and a
+  Home card with a day streak and one-tap starts. New engine files:
+  `ui.js` and `fonts/`.
+- `android/` packages a topic app as an Android APK and a Meta Quest panel
+  APK that work with no connection (see `android/README.md`). Copy the
+  folder into a topic app and edit `android/app.properties`.
+- Google sign-in is hidden inside the Android app, which shows "Saved on
+  device" instead.

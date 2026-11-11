@@ -1,0 +1,109 @@
+// Android shell for the web app in the repository root.
+// The web files are copied into the APK at build time (see copyWebAssets),
+// so the app works fully offline. Two flavors:
+//   phone - Android phones and tablets
+//   quest - Meta Quest 2/3/Pro: opens as a resizable 2D panel
+// Per-app values live in app.properties.
+plugins {
+    id 'com.android.application'
+}
+
+def appProps = new Properties()
+file("../app.properties").withInputStream { appProps.load(it) }
+
+def webRoot = file("../..")
+def webAssets = layout.buildDirectory.dir("webassets")
+
+android {
+    namespace 'app.webshell'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId appProps['applicationId']
+        minSdk 26
+        targetSdk 34
+        versionCode Integer.parseInt(appProps['versionCode'])
+        versionName appProps['versionName']
+        resValue "string", "app_name", appProps['appName']
+        buildConfigField "String", "START_PATH", "\"${appProps.getProperty('startPath', 'index.html')}\""
+        buildConfigField "String", "LIVE_HOSTS", "\"${appProps.getProperty('inAppHosts', '')}\""
+    }
+
+    signingConfigs {
+        // Sideload key committed to the repo so every build (local or CI)
+        // installs over the previous one. Not a Play Store key.
+        sideload {
+            storeFile file("../keystore/sideload.keystore")
+            storePassword "sideload"
+            keyAlias "sideload"
+            keyPassword "sideload"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            signingConfig signingConfigs.sideload
+        }
+        debug {
+            signingConfig signingConfigs.sideload
+        }
+    }
+
+    flavorDimensions = ["device"]
+    productFlavors {
+        phone {
+            dimension "device"
+            buildConfigField "boolean", "QUEST", "false"
+        }
+        quest {
+            dimension "device"
+            minSdk 29
+            targetSdk 32
+            buildConfigField "boolean", "QUEST", "true"
+        }
+    }
+
+    buildFeatures { buildConfig true }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.assets.srcDirs += [webAssets]
+    }
+
+    lint { abortOnError false; checkReleaseBuilds false }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${appProps['apkName']}-${variant.flavorName}-${variant.versionName}.apk"
+        }
+    }
+}
+
+// Copy the web app (repo root) into build/webassets/www.
+tasks.register('copyWebAssets', Copy) {
+    from(webRoot) {
+        def inc = appProps.getProperty('webInclude', '').trim()
+        if (inc) { include inc.split(',').collect { it.trim() } }
+        exclude 'android/**', '.git/**', '.github/**', 'node_modules/**', 'qa/**', 'tools/**',
+                'pipeline/**', 'schemas/**', 'template/**', '**/*.md', 'package*.json',
+                'firestore.rules', 'CNAME', '.gitignore', '.nojekyll'
+        def exc = appProps.getProperty('webExclude', '').trim()
+        if (exc) { exclude exc.split(',').collect { it.trim() } }
+    }
+    into webAssets.map { it.dir("www") }
+}
+preBuild.dependsOn 'copyWebAssets'
+tasks.configureEach { t ->
+    if (t.name.startsWith('merge') && t.name.endsWith('Assets')) t.dependsOn 'copyWebAssets'
+    if (t.name.startsWith('lint') || t.name.contains('Lint')) t.dependsOn 'copyWebAssets'
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.12.1'
+}

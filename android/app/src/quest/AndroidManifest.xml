@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Meta Quest overlay: the app runs as a resizable 2D panel in the headset.
+     No VR intent category is declared on purpose - that would launch it as
+     an immersive app instead of a panel. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" tools:node="replace" />
+
+    <application>
+        <meta-data android:name="com.oculus.supportedDevices" android:value="quest2|questpro|quest3|quest3s" />
+
+        <activity
+            android:name=".MainActivity"
+            tools:node="merge">
+            <!-- Default panel size when the app opens in the headset. -->
+            <layout
+                android:defaultWidth="1024dp"
+                android:defaultHeight="640dp"
+                android:minWidth="480dp"
+                android:minHeight="400dp" />
+        </activity>
+    </application>
+</manifest>

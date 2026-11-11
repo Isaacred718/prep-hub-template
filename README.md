@@ -58,3 +58,11 @@ If a topic seems to need an engine change, it is a **template** change:
 make it here so every app benefits, and log it in `CHANGELOG.md`.
 Topic-specific data (blueprints, document lists, roadmaps) lives in
 `topic.js`, always.
+
+## Android and Meta Quest
+
+`android/` packages this app as an APK that works with no connection, in two
+builds: one for Android phones and tablets and one that opens as a flat,
+resizable panel on Meta Quest 2 / 3 / Pro. See
+[android/README.md](android/README.md) to build and install. The
+**Android APKs** workflow builds both on every push.

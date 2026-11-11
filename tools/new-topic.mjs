@@ -24,7 +24,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const ENGINE = ['index.html', 'styles.css', 'settings.js', 'app.js', 'forge.js', 'auth.js', 'sw.js'];
+const ENGINE = ['index.html', 'styles.css', 'settings.js', 'app.js', 'ui.js', 'forge.js', 'auth.js', 'sw.js', 'fonts/nunito.woff2', 'fonts/OFL.txt'];
 const CONTENT = ['data/questions.js', 'data/cards.js', 'data/guides.js', 'data/drills.js', 'data/forge.js'];
 const ACCENTS = ['sky', 'violet', 'emerald', 'amber', 'rose', 'indigo'];
 

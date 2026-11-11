@@ -17,7 +17,7 @@ var TOPIC = {
 
   name: 'Astro Prep',
   title: 'Astro Prep — astronomy study app',
-  version: '1.0',
+  version: '2.0',
 
   // Default accent color: sky | violet | emerald | amber | rose | indigo.
   accent: 'violet',
