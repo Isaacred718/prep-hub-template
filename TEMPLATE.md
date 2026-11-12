@@ -37,8 +37,8 @@ node tools/new-topic.mjs ../spanish-prep --name "Spanish Prep" --id spanish --ac
 The new folder is a complete, working app holding the **astronomy sample
 content** from `template/`: open it and every feature already works. Then make it yours.
 
-**Without Node:** copy the seven engine files (`index.html`, `styles.css`,
-`settings.js`, `app.js`, `forge.js`, `auth.js`, `sw.js`) plus `template/topic.js`
+**Without Node:** copy the engine files (`index.html`, `styles.css`,
+`settings.js`, `app.js`, `ui.js`, `forge.js`, `auth.js`, `sw.js` and the `fonts/` folder) plus `template/topic.js`
 and `template/data/` into a new folder, and edit `id` and `name` in `topic.js`.
 
 ## Installable + offline (built in)
@@ -275,7 +275,7 @@ settings stay on each device. On sign-in the newer side wins, by `updatedAt`.
 
 The seven engine files are identical in every app built from the template.
 To pick up engine improvements, copy the newer `index.html`, `styles.css`,
-`settings.js`, `app.js`, `forge.js`, `auth.js` and `sw.js` over the old ones.
+`settings.js`, `app.js`, `ui.js`, `forge.js`, `auth.js`, `sw.js` and `fonts/` over the old ones.
 Your `topic.js` and `data/` stay untouched, and people's progress carries over.
 
 ## How the engine fits together
@@ -286,6 +286,7 @@ Your `topic.js` and `data/` stay untouched, and people's progress carries over.
 | `topic.js` | Topic configuration (the only file besides `data/` that differs between apps). |
 | `settings.js` | Settings store, theme/accent/text size, the Settings sheet, export/import, update check. |
 | `app.js` | Tabs, readiness, guides, flashcards, quiz, practice tests, drills, Endless mode, keyboard shortcuts. |
+| `ui.js` | More sheet, Home streak card, drag-to-close sheets and the Android app hooks. `fonts/` holds the bundled typeface. |
 | `forge.js` | Question-generator engine; `data/forge.js` registers the topic's generators. |
 | `auth.js` | Google sign-in and Firestore sync (offline-first; does nothing when `sync` is `null`). |
 | `sw.js` | Offline service worker (network-first, caches namespaced by `id`). |
