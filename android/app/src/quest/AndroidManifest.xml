@@ -15,8 +15,8 @@
             tools:node="merge">
             <!-- Default panel size when the app opens in the headset. -->
             <layout
-                android:defaultWidth="1024dp"
-                android:defaultHeight="640dp"
+                android:defaultWidth="${questWidth}dp"
+                android:defaultHeight="${questHeight}dp"
                 android:minWidth="480dp"
                 android:minHeight="400dp" />
         </activity>

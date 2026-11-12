@@ -27,6 +27,9 @@ android {
         resValue "string", "app_name", appProps['appName']
         buildConfigField "String", "START_PATH", "\"${appProps.getProperty('startPath', 'index.html')}\""
         buildConfigField "String", "LIVE_HOSTS", "\"${appProps.getProperty('inAppHosts', '')}\""
+        // Size of the panel the Quest build opens with (dp).
+        manifestPlaceholders = [questWidth : appProps.getProperty('questWidthDp', '1024'),
+                                questHeight: appProps.getProperty('questHeightDp', '640')]
     }
 
     signingConfigs {

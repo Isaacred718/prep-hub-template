@@ -30,7 +30,7 @@ the run as artifacts.
 
 | | phone | quest |
 |---|---|---|
-| Window | full screen | 2D panel, 1024 x 640 dp by default, resizable |
+| Window | full screen | 2D panel, resizable (default size: `questWidthDp` x `questHeightDp` in `app.properties`, 1024 x 640 if unset) |
 | Page hooks | `html.native-app` | `html.native-app.quest` (larger targets, hover outlines) |
 | Target SDK | 34 | 32 |
 
