@@ -1,0 +1,97 @@
+{
+  "topic": {
+    "id": "vcap-vcf-admin",
+    "name": "VCAP-VCF Prep",
+    "title": "Advanced VMware Cloud Foundation 9 Administrator (VCAP-VCF) Prep",
+    "accent": "lime",
+    "iconText": "VCF",
+    "trackLabel": "Exam",
+    "advancedPrefix": "",
+    "blurb": "Unofficial study companion for the Advanced VMware Cloud Foundation 9 Administrator exam (3V0-11.26), leading to VMware Certified Advanced Professional - VMware Cloud Foundation Administrator. Every testable objective sits in Section 4 (Deploy, Configure, and Operate); Sections 1, 2, 3 and 5 carry no testable objectives in the current guide. Built from Broadcom's official exam guide (November 2026) and VCF 9 documentation areas. The vSphere Administration material also draws on the classic vSphere Virtual Machine Administration guide (ESXi 5.5, French edition), translated and rewritten for the durable VM fundamentals under objective 4.11; that book predates VCF, so treat it as grounding for VM concepts only, never for VCF 9 behavior."
+  },
+  "tracks": [
+    {
+      "id": "VCAP",
+      "label": "VCAP-VCF Administrator (3V0-11.26)",
+      "prerequisite": null,
+      "summary": "Advanced VMware Cloud Foundation 9 Administrator: 60 items in a 135-minute proctored Pearson VUE appointment, scaled passing score 300, USD 250. Item types include multiple-choice, multiple-selection, build-list, matching, drag-and-drop, point-and-click and hot-area. The minimally qualified candidate manages, maintains and scales a multi-region and/or multi-organization VCF private cloud across vCenter, ESX, vSAN, NSX, VCF Identity Broker, VCF Automation, VCF Operations (Logs, Fleet Management, Networks) and the vSphere Kubernetes Service (VKS)."
+    }
+  ],
+  "domains": [
+    { "name": "vSAN and Storage", "track": "VCAP", "duty": "A", "description": "Objectives 4.1-4.9: deploy vSAN and stretched clusters in a workload domain, supported non-vSAN storage, cross-cluster capacity sharing and vSAN storage clusters, vSAN encryption and data protection, Day 2 administration, storage policies." },
+    { "name": "vSphere Administration", "track": "VCAP", "duty": "B", "description": "Objectives 4.10-4.18: vSphere advanced settings, managing virtual machines, advanced network operations, CPU and memory performance optimization, vCenter performance, monitoring, security and access control, VM encryption and trusted environments." },
+    { "name": "Provider Management", "track": "VCAP", "duty": "C", "description": "Objectives 4.19-4.23: identity provider, provider content libraries, access control, blueprints and the Provider Consumption Organization in the VCF Automation Provider Management portal." },
+    { "name": "VCF All Apps Tenancy", "track": "VCAP", "duty": "D", "description": "Objectives 4.24-4.29: identity providers, access control, projects, governance policies, namespace classes, VPCs and VPC connectivity profiles inside a VCF All Apps organization." },
+    { "name": "Supervisor and VKS", "track": "VCAP", "duty": "E", "description": "Objectives 4.30-4.34: Supervisor clusters (NSX VPC, NSX segment, vDS, Avi load balancer), add-on services, VKS cluster updates, package repositories and registries, Supervisor upgrades." },
+    { "name": "VCF Operations", "track": "VCAP", "duty": "F", "description": "Objectives 4.35-4.43: Day 2 operational tasks, resource reclamation, rightsizing, capacity forecasting with what-if scenarios, cost management, policies, business vs operational intent, business applications, alerts." },
+    { "name": "Fleet Management", "track": "VCAP", "duty": "G", "description": "Objectives 4.44-4.47: scaling fleet lifecycle management, upgrading fleet components, VCF SSO with identity and access management, configuration drift monitoring in VCF Operations." },
+    { "name": "VMware NSX", "track": "VCAP", "duty": "H", "description": "Objectives 4.48-4.60: NSX Federation, NSX components, Edge clusters, Tier-0 gateways, VRFs, logical segments, Tier-1 gateways, VPCs, DHCP, NAT, projects and tenancy, advanced integrations, operational tasks (syslog, backup and restore)." }
+  ],
+  "duties": {
+    "VCAP": {
+      "weights": { "A": 15, "B": 15, "C": 8, "D": 10, "E": 8, "F": 15, "G": 7, "H": 22 },
+      "names": { "A": "vSAN and Storage", "B": "vSphere Administration", "C": "Provider Management", "D": "VCF All Apps Tenancy", "E": "Supervisor and VKS", "F": "VCF Operations", "G": "Fleet Management", "H": "VMware NSX" }
+    }
+  },
+  "exam": {
+    "passMark": 60,
+    "lengths": [
+      { "n": 10, "label": "Quick 10" },
+      { "n": 25, "label": "Standard 25", "default": true },
+      { "n": 60, "label": "Full mock 60" }
+    ],
+    "simQuestions": 60,
+    "simMinutes": 135,
+    "disclaimer": "The real exam is scored on a scaled method (pass mark 300); Broadcom publishes no percentage equivalent, so this app's readiness scores are a study proxy, not a score prediction. The real exam also uses build-list, matching, drag-and-drop, point-and-click and hot-area items that a multiple-choice app cannot reproduce; use the drills for process-order thinking. All 60 testable objectives are in Section 4; Sections 1, 2, 3 and 5 have no testable objectives in the November 2026 guide.",
+    "fees": {
+      "VCAP": {
+        "exam": 250,
+        "currency": "USD",
+        "asPublished": "USD 250 (Broadcom certification page and exam guide, November 2026)",
+        "requires": "No prerequisite certification or course is stated. Recommended courses: VMware Cloud Foundation Storage, Automation, Operation, Networking and Compute Advanced Configuration, plus vSphere Kubernetes Service: Advanced Configuration."
+      }
+    }
+  },
+  "sources": [
+    { "title": "VCAP-VCF Administrator certification page (official)", "kind": "other", "track": "VCAP", "url": "https://www.broadcom.com/support/education/vmware/certification/vcap-vcf-administrator9", "gated": false, "localFile": null, "description": "Broadcom. Certification identity, required exam 3V0-11.26, exam details (60 items, 135 minutes, pass 300, USD 250), recommended courses.", "notes": "Primary source for certification facts. Read live 2026-11-23." },
+    { "title": "Advanced VMware Cloud Foundation 9 Administrator (3V0-11.26) Exam Guide, November 2026 (official)", "kind": "other", "track": "VCAP", "url": "https://docs.broadcom.com/docs/vcap-admin-exam-guide", "gated": false, "localFile": "vcap_admin_exam_guide.pdf", "description": "Broadcom, 6 pages. The complete blueprint: all 60 Section 4 objectives (4.1-4.60), item types, minimally qualified candidate profile.", "notes": "Primary source for domains, duties and objective mapping. Ships in the app library." },
+    { "title": "VMware Cloud Foundation 9.0 documentation (Broadcom Tech Docs)", "kind": "other", "track": "VCAP", "url": "https://techdocs.broadcom.com", "gated": false, "localFile": null, "description": "Official VCF 9.0 product documentation: vSAN, NSX, VCF Operations, VCF Automation, Supervisor and VKS, fleet management.", "notes": "Reference family the exam item writers use, per the exam guide." },
+    { "title": "vSphere Virtual Machine Administration - ESXi 5.5 (French edition, user-supplied EPUB)", "kind": "textbook", "track": "VCAP", "url": null, "gated": false, "localFile": null, "description": "VMware's official VM administration guide for vSphere 5.5, in French: VM components and lifecycle, provisioning, templates and clones, customization specifications, OVF, VM hardware, resource shares/limits/reservations, snapshots, VMware Tools.", "notes": "Translated and rewritten (never copied) for the durable VM fundamentals under objective 4.11 and related vSphere Administration items. ESXi 5.5 era: predates VCF, vSAN ESA and NSX, so it grounds concepts only; VCF 9 behavior always follows the exam guide and VCF 9 docs." }
+  ],
+  "library": {
+    "title": "Document Library",
+    "intro": "Official Broadcom references, saved on this device so they open even offline.",
+    "groups": [
+      { "cert": "VCAP", "docs": [
+        ["vcap_admin_exam_guide.pdf", "VCAP-VCF Administrator Exam Guide (3V0-11.26)", "Official blueprint: all 60 Section 4 objectives, exam details, Nov 2026"]
+      ]}
+    ]
+  },
+  "roadmap": {
+    "title": "Your path to VCAP-VCF Administrator",
+    "intro": "One exam: Advanced VMware Cloud Foundation 9 Administrator (3V0-11.26), 60 items, 135 minutes, scaled pass 300, USD 250 at Pearson VUE. There is no stated prerequisite, but the exam assumes you already run VCF: it is all Section 4, deploy, configure and operate, weighted toward NSX (13 objectives), vSAN, vSphere administration and VCF Operations (9 each).",
+    "footer": "Official pages: <a href=\"https://www.broadcom.com/support/education/vmware/certification/vcap-vcf-administrator9\" target=\"_blank\" rel=\"noopener\">certification page</a> · <a href=\"https://docs.broadcom.com/docs/vcap-admin-exam-guide\" target=\"_blank\" rel=\"noopener\">exam study guide</a> · <a href=\"https://techdocs.broadcom.com\" target=\"_blank\" rel=\"noopener\">VCF 9.0 Tech Docs</a>.",
+    "tracks": [
+      {
+        "id": "VCAP",
+        "status": null,
+        "note": "Recommended (not required) courses: the six Advanced Configuration courses for Storage, Automation, Operation, Networking, Compute and VKS.",
+        "items": [
+          "Read the official exam guide end to end (in this app's Library)",
+          "Work each study area: guide first, then flashcards, then a practice set",
+          "Spend extra cycles on NSX, vSAN and VCF Operations, the heaviest objective clusters",
+          "Get hands-on time in a VCF 9 environment or lab for the process-order objectives",
+          "Reach Exam ready (85+) readiness in every area on the Overview tab",
+          "Take full 60-question mocks inside the 135-minute exam budget",
+          "Register through CertMetrics and sit the proctored exam at Pearson VUE"
+        ]
+      }
+    ]
+  },
+  "contentTargets": {
+    "questionsPerTrack": { "VCAP": 120 },
+    "cardsPerDomain": 12,
+    "drills": 12,
+    "guides": ["vSAN and Storage in VCF 9", "vSphere Administration in a Workload Domain", "Provider Management in VCF Automation", "VCF All Apps Organizations and Tenancy", "Supervisor and VKS Administration", "VCF Operations: Day 2, Capacity and Cost", "Fleet Management and Lifecycle", "VMware NSX in VCF: Federation to VPCs"]
+  }
+}

@@ -67,7 +67,7 @@ if (new Set(trackIds).size !== trackIds.length) err('topic.tracks has duplicate 
 tracks.forEach(t => { if (!t.id || !t.label) err('every track needs an id and a label'); });
 const defaultTrack = T.defaultTrack || trackIds[0];
 if (Array.isArray(T.tracks) && T.tracks.length && !trackIds.includes(defaultTrack)) err(`topic.defaultTrack "${T.defaultTrack}" is not one of the tracks`);
-if (T.accent && !['sky', 'violet', 'emerald', 'amber', 'rose', 'indigo'].includes(T.accent)) warn(`topic.accent "${T.accent}" is not a known accent (sky, violet, emerald, amber, rose, indigo)`);
+if (T.accent && !['sky', 'violet', 'emerald', 'amber', 'rose', 'indigo', 'lime'].includes(T.accent)) warn(`topic.accent "${T.accent}" is not a known accent (sky, violet, emerald, amber, rose, indigo, lime)`);
 if (T.levels && (!Array.isArray(T.levels) || T.levels.length !== 5)) warn('topic.levels should list exactly five level names');
 const lengths = (T.exam && T.exam.lengths) || [];
 lengths.forEach(l => { if (!(l.n > 0) || !l.label) err('every exam length needs a positive n and a label'); });
