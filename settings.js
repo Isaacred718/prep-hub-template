@@ -45,12 +45,13 @@ var DEVICE_KEYS = ['theme', 'accent', 'textSize', 'reduceMotion', 'sounds', 'sho
 
 var ACCENTS = [
   ['sky', 'Sky', '#38bdf8'], ['violet', 'Violet', '#a78bfa'], ['emerald', 'Emerald', '#34d399'],
-  ['amber', 'Amber', '#fbbf24'], ['rose', 'Rose', '#fb7185'], ['indigo', 'Indigo', '#818cf8']
+  ['amber', 'Amber', '#fbbf24'], ['rose', 'Rose', '#fb7185'], ['indigo', 'Indigo', '#818cf8'],
+  ['lime', 'Lime', '#8cf23a']
 ];
 // gradient stops used for the generated app icon
 var ICON_GRADIENT = {
   sky: ['#0284c7', '#2563eb'], violet: ['#7c3aed', '#6d28d9'], emerald: ['#059669', '#0d9488'],
-  amber: ['#d97706', '#ea580c'], rose: ['#e11d48', '#db2777'], indigo: ['#4f46e5', '#4338ca']
+  amber: ['#d97706', '#ea580c'], rose: ['#e11d48', '#db2777'], indigo: ['#4f46e5', '#4338ca'], lime: ['#65a30d', '#3f6212']
 };
 
 /* ---------- store ---------- */

@@ -39,3 +39,16 @@ builds new topic apps:
 - Fixes found during integration: the app now sets document.title from
   the topic config, and new-topic/from-dossier stamp the static <title>
   in index.html (generated apps no longer show a generic "Study" tab).
+
+## 1.3 (2026-11-23)
+- Design language ported from Isaac's FitLog tracker (Dadbod Fitness):
+  dark forest palette, lime accent family (new seventh accent, also in
+  the in-app picker and icon gradients), Barlow + Barlow Condensed
+  bundled as woff2 and precached for offline, Liquid Glass on chrome
+  only (sticky header, floating pill nav, settings sheet, toasts),
+  solid content surfaces, 14/20/28/34px radii, pill CTAs with the
+  gloss gradient, 56px touch targets, FitLog motion and the reduced
+  transparency/contrast preferences. Light theme kept and re-tinted.
+  Selector parity with 1.2 verified: no class or id lost.
+- from-dossier.mjs: engine copy now creates parent directories
+  (nested assets/fonts paths scaffold correctly).

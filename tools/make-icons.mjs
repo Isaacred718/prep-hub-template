@@ -19,7 +19,7 @@ import zlib from 'node:zlib';
 
 export const GRADIENTS = {
   sky: ['#0284c7', '#2563eb'], violet: ['#7c3aed', '#6d28d9'], emerald: ['#059669', '#0d9488'],
-  amber: ['#d97706', '#ea580c'], rose: ['#e11d48', '#db2777'], indigo: ['#4f46e5', '#4338ca']
+  amber: ['#d97706', '#ea580c'], rose: ['#e11d48', '#db2777'], indigo: ['#4f46e5', '#4338ca'], lime: ['#65a30d', '#3f6212']
 };
 
 /* 5x7 bitmap font, rows top→bottom, 5 bits per row (MSB = leftmost pixel). */
@@ -132,8 +132,8 @@ export function writeInstallAssets(dir, opts) {
     scope: '.',
     display: 'standalone',
     orientation: 'portrait',
-    background_color: '#0f172a',
-    theme_color: '#0f172a',
+    background_color: '#060b07',
+    theme_color: '#060b07',
     icons: [
       { src: 'icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
       { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
